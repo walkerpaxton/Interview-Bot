@@ -1,0 +1,27 @@
+{
+  "name": "interview-bot",
+  "version": "1.0.0",
+  "description": "This project implements a scalable, modular mock interview platform using a microservices-inspired architecture. Below is the initial directory structure and a description of each component.",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/carlpaolino/Interview-Bot.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/carlpaolino/Interview-Bot/issues"
+  },
+  "homepage": "https://github.com/carlpaolino/Interview-Bot#readme",
+  "dependencies": {
+    "next": "^15.3.4",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0"
+  }
+}
