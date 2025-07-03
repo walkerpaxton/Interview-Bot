@@ -12,7 +12,8 @@ export default function Home() {
         <div id = "title">
         <h1 style = {{
             textAlign : "center",
-            fontSize: "4rem"
+            fontSize: "4rem",
+            color: "white"
         }}>
         CS Interview Prepper</h1>
         </div>
@@ -34,7 +35,7 @@ export default function Home() {
             padding: "48px 96px",
             fontSize: "2.75rem",
             borderRadius: "60px",
-            backgroundColor: "black",
+            backgroundColor: "darkblue",
             color: "white",
             border: "white",
             cursor: "pointer"
@@ -50,7 +51,7 @@ export default function Home() {
             padding: "48px 96px",
             fontSize: "2.75rem",
             borderRadius: "60px",
-            backgroundColor: "black",
+            backgroundColor: "darkblue",
             color: "white",
             border: "white",
             cursor: "pointer"

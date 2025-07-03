@@ -2,19 +2,46 @@ import React, { useState } from 'react';
 
 export default function Home() {
     const [postContent, setPostContent] = useState('');
+    const [response, setResponse] = useState('')
     const submitText = () => {
-
+        setResponse(postContent)
+        setPostContent("")
     }
     return (
-    <div id = "webpage">
+    <div id = "webpage"
+        style ={{
+            //backgroundColor: "black",
+            margin: 0,
+            padding: 0,
+    }}>
 
         <div id = "title">
             <h1 style = {{
                 textAlign: "center",
-                fontSize: "4rem"
+                fontSize: "2rem",
+                color: "white"
             }}>
-            Interview Bot Page, Implement Later
+            Interviewer
             </h1>
+        </div>
+
+        <div id = "responses"
+            style = {{
+                textAlign: "center",
+                fontSize: "20px",
+                margin: "10px auto 0 auto",
+                width: "700px",
+                height: "515px",
+                borderRadius: "20px",
+                boxSizing:"border-box",
+                wordBreak: "break-word",
+                whiteSpace: "pre-wrap",
+                border: "4px solid darkblue",
+                color: "black",
+                backgroundColor: "white" 
+            
+        }}>
+            {response}
         </div>
 
         <div id = "text">
@@ -22,17 +49,23 @@ export default function Home() {
             style = {{
                 position: "fixed",
                 left: "50%",
-                bottom: "100px",
+                bottom: "50px",
                 transform: "translateX(-50%)",
                 borderRadius: "20px",
                 padding: "10px",
-                width: "500px",
+                width: "680px",
                 height: "50px",
-                borderColor: "black",
-                fontSize: "20px"
+                border: "4px solid darkblue",
+                fontSize: "20px",
+                resize: "none"
             }}
             value = {postContent}
             onChange={e => setPostContent(e.target.value)}
+            onKeyDown={e => {
+                if (e.key === "Enter" && !e.shiftKey)
+                    submitText();
+                }
+            }
             />
             <button
             type = "submit"
@@ -40,11 +73,12 @@ export default function Home() {
             style = {{
                 position: "absolute",
                 borderColor: "grey",
-                left: "64%", 
-                bottom: "105px", 
+                left: "70%", 
+                bottom: "60px", 
                 borderRadius: "20px",
                 backgroundColor: "black",
-                color: "white"
+                color: "white", 
+                cursor: "pointer"
             }}>
                 Submit
             </button>

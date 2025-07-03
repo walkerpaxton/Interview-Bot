@@ -5,7 +5,8 @@ export default function Home() {
     <div id = "title">
         <h1 style = {{
             textAlign: "center",
-            fontSize: "4rem"
+            fontSize: "4rem",
+            color: "white"
         }}>
             Study Materials Page, Implement Later
         </h1>
