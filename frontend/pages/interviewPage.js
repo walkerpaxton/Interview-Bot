@@ -18,6 +18,9 @@ export default function Home() {
             //backgroundColor: "black",
             margin: 0,
             padding: 0,
+            flexDirection: "column",
+            alignItems: "center",
+            display: "flex"
     }}>
 
         <div id = "title">
@@ -30,15 +33,16 @@ export default function Home() {
             </h1>
         </div>
 
-        <div id = "responses">
-        <textarea
+        <div id = "responses"
             style = {{
-                position: "fixed",
-                left: "25%",
-                textAlign: "left",
-                fontSize: "20px",
+                width: "90vw",
+                maxWidth: "700px",
                 margin: "10px auto 0 auto",
-                width: "700px",
+            }}>
+            <textarea
+            style = {{
+                width: "100%",
+                fontSize: "20px",
                 height: "500px",
                 borderRadius: "20px",
                 boxSizing:"border-box",
@@ -55,19 +59,31 @@ export default function Home() {
             />
         </div>
 
-        <div id = "text">
-            <textarea 
+        <form id = "text"
             style = {{
-                position: "fixed",
-                left: "25%",
-                bottom: "30px",
+                width: "100%",
+                maxWidth: "700px",
+                display: "flex",
+                gap: "1rem",
+                marginBottom: "2rem",
+                position: "relative"
+            }}
+            onSubmit ={e => {
+                e.preventDefault();
+                submitText("user");
+            }}
+            >
+            <textarea
+                style = {{
+                display: "flex",
                 borderRadius: "20px",
                 padding: "10px",
-                width: "700px",
+                
                 height: "45px",
                 border: "4px solid darkblue",
                 fontSize: "15px",
                 resize: "none",
+                flex: 1,
             }}
             value = {postContent}
             onChange={e => setPostContent(e.target.value)}
@@ -81,12 +97,11 @@ export default function Home() {
             />
             <button
             type = "submit"
-            onClick = {() => submitText("user")}
             style = {{
-                position: "fixed",
+                position: "absolute",
                 borderColor: "grey",
-                left: "70%", 
-                bottom: "47px", 
+                right: "15px",
+                bottom: "10px",
                 borderRadius: "20px",
                 backgroundColor: "black",
                 color: "white", 
@@ -94,7 +109,7 @@ export default function Home() {
             }}>
                 Submit
             </button>
-        </div>
+        </form>
     </div>
     );
 }
