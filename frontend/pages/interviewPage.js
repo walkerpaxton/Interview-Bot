@@ -30,8 +30,11 @@ export default function Home() {
             </h1>
         </div>
 
-        <div id = "responses"
+        <div id = "responses">
+        <textarea
             style = {{
+                position: "fixed",
+                left: "25%",
                 textAlign: "left",
                 fontSize: "20px",
                 margin: "10px auto 0 auto",
@@ -44,21 +47,23 @@ export default function Home() {
                 border: "4px solid darkblue",
                 color: "black",
                 backgroundColor: "white",
-                paddingLeft: "10px"
-        }}>
-            {response}
+                paddingLeft: "10px",
+                resize: "none"
+        }}
+            value = {response}
+            readOnly
+            />
         </div>
 
         <div id = "text">
             <textarea 
             style = {{
                 position: "fixed",
-                left: "50%",
-                bottom: "35px",
-                transform: "translateX(-50%)",
+                left: "25%",
+                bottom: "30px",
                 borderRadius: "20px",
                 padding: "10px",
-                width: "680px",
+                width: "700px",
                 height: "45px",
                 border: "4px solid darkblue",
                 fontSize: "15px",
@@ -78,7 +83,7 @@ export default function Home() {
             type = "submit"
             onClick = {() => submitText("user")}
             style = {{
-                position: "absolute",
+                position: "fixed",
                 borderColor: "grey",
                 left: "70%", 
                 bottom: "47px", 
