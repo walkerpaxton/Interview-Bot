@@ -29,7 +29,7 @@ export default function Home() {
             color: "white"
         }}>
             {slides.map((slide, idx) =>
-            <div key={idx}>
+            <div>
                 {slide.file && <h2>{slide.file}</h2>}
                 <div style = {{ whiteSpace: "pre-wrap"}}>{slide.content}</div>
                 </div>

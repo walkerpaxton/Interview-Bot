@@ -1,11 +1,16 @@
 import React, { useState } from 'react';
 
 export default function Home() {
-    const [postContent, setPostContent] = useState('');
+    const [postContent, setPostContent] = useState('')
     const [response, setResponse] = useState('')
-    const submitText = () => {
-        setResponse(postContent)
+    const [fullChat, setFullChat] = useState('')
+    const submitText = (input) => {
+        const newResp = response + input + ": \n" + postContent + "\n"
+        setResponse(newResp)
+        const newChat = fullChat + postContent + "\n"
+        setFullChat(newChat)
         setPostContent("")
+        console.log(newChat)
     }
     return (
     <div id = "webpage"
@@ -27,19 +32,19 @@ export default function Home() {
 
         <div id = "responses"
             style = {{
-                textAlign: "center",
+                textAlign: "left",
                 fontSize: "20px",
                 margin: "10px auto 0 auto",
                 width: "700px",
-                height: "515px",
+                height: "500px",
                 borderRadius: "20px",
                 boxSizing:"border-box",
                 wordBreak: "break-word",
                 whiteSpace: "pre-wrap",
                 border: "4px solid darkblue",
                 color: "black",
-                backgroundColor: "white" 
-            
+                backgroundColor: "white",
+                paddingLeft: "10px"
         }}>
             {response}
         </div>
@@ -49,32 +54,34 @@ export default function Home() {
             style = {{
                 position: "fixed",
                 left: "50%",
-                bottom: "50px",
+                bottom: "35px",
                 transform: "translateX(-50%)",
                 borderRadius: "20px",
                 padding: "10px",
                 width: "680px",
-                height: "50px",
+                height: "45px",
                 border: "4px solid darkblue",
-                fontSize: "20px",
-                resize: "none"
+                fontSize: "15px",
+                resize: "none",
             }}
             value = {postContent}
             onChange={e => setPostContent(e.target.value)}
             onKeyDown={e => {
-                if (e.key === "Enter" && !e.shiftKey)
-                    submitText();
+                if (e.key === "Enter" && !e.shiftKey) {
+                    e.preventDefault()
+                    submitText("user");
+                }
                 }
             }
             />
             <button
             type = "submit"
-            onClick = {() => submitText()}
+            onClick = {() => submitText("user")}
             style = {{
                 position: "absolute",
                 borderColor: "grey",
                 left: "70%", 
-                bottom: "60px", 
+                bottom: "47px", 
                 borderRadius: "20px",
                 backgroundColor: "black",
                 color: "white", 
