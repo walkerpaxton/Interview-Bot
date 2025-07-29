@@ -1,16 +1,15 @@
 import scrapy
 
 class geeksforgeeks_spider(scrapy.Spider):
-    name = "gfgcs"
+    name = "gfgs"
     start_urls = ["https://www.tutorialspoint.com/data_structures_algorithms/index.htm"]
 
     def parse(self, response):
-        count = 0
         for link in response.css('ul.toc.chapters li a::attr(href)').getall():
             url = response.urljoin(link)
-            if "data_structures_algorithms" in url and count < 5:
+            if "data_structures_algorithms" in url:
                 yield response.follow(url, self.parse_article)
-                count += 1
+        
 
     def parse_article(self, response):
         title = response.css('h1::text').get()
