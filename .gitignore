@@ -24,3 +24,19 @@ venv/
 # OS
 .DS_Store
 Thumbs.db
+
+# Environment files
+.env
+backend/.env
+
+# Node.js
+node_modules/
+frontend/node_modules/
+
+# Next.js
+.next/
+frontend/.next/
+
+# Python
+__pycache__/
+*.pyc
