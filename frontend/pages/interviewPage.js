@@ -4,14 +4,32 @@ export default function Home() {
     const [postContent, setPostContent] = useState('')
     const [response, setResponse] = useState('')
     const [fullChat, setFullChat] = useState('')
-    const submitText = (input) => {
-        const newResp = response + input + ": \n" + postContent + "\n"
+
+    const submitText = async (input) => {
+        const question = await getInterviewQuestion("dsa");
+        const newResp = response + input + ": \n" + postContent + "\n" + "interviewer:\n" + question + "\n"
         setResponse(newResp)
         const newChat = fullChat + postContent + "\n"
         setFullChat(newChat)
         setPostContent("")
         console.log(newChat)
     }
+
+
+    const getInterviewQuestion = async (topic) => {
+        try {
+            const response = await fetch("http://localhost:8000/api/interview/question", {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({topic: topic})
+            });
+            const data = await response.json();
+            return data.question;
+        } catch (error) {
+            console.error('Error:', error);
+            return "Error getting question";
+        }
+    };
     return (
     <div id = "webpage"
         style ={{
